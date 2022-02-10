@@ -5,8 +5,12 @@
 
 
 # GNU: -fopenacc, CrayCpp: -h pragma=acc, CrayFortran: -h acc,noomp, PGI: -acc
-OMPFC := ftn
-OMPOPT := -fopenacc
+#OMPFC := ftn
+#OMPOPT := -fopenacc
+
+OMPFC := pgfortran
+OMPOPT := -g -acc -ta=tesla -Minfo=all -Minform=inform
+#OMPOPT := -g -acc -ta=tesla -Minfo=ccff
 
 slib: libapi.so kernel.so
 
